@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ASIMA BARVEEN— Portfolio</title>
+  <meta name="description" content="Asima Barveen — web developer & designer." />
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======= CSS Variables & Reset ======= */
+    :root{
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #6ee7b7;
+      --accent-2: #7dd3fc;
+      --glass: rgba(255,255,255,0.04);
+      --max-width: 1100px;
+      --radius: 12px;
+      --ff: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff);
+      background:linear-gradient(180deg,var(--bg) 0%, #071025 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    /* ======= Top Nav ======= */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:28px;
+    }
+
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px;
+    }
+
+    .brand .logo{
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;color:#05202a;font-weight:800;font-size:18px;
+      box-shadow:0 6px 18px rgba(13,22,32,0.6);
+    }
+
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent-2)}
+    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:10px 14px;border-radius:10px;color:#05202a;font-weight:700;text-decoration:none}
+
+    /* ======= Hero ======= */
+    .hero{
+      display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:36px;
+    }
+
+    .intro{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.6);
+    }
+
+    .intro h1{font-size:28px;margin:0 0 10px}
+    .intro p{color:var(--muted);margin:0 0 18px}
+    .skills{display:flex;gap:8px;flex-wrap:wrap}
+    .skill{background:var(--glass);padding:8px 10px;border-radius:999px;font-weight:600;color:var(--muted);font-size:13px}
+
+    .profile-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:16px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px;
+    }
+
+    .avatar{width:140px;height:140px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:800;color:#032023;font-size:40px}
+    .profile-card small{color:var(--muted)}
+
+    /* ======= Projects Grid ======= */
+    .section{margin-bottom:34px}
+    h2.section-title{margin:0 0 16px;font-size:20px}
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;padding:14px;overflow:hidden;box-shadow:0 8px 30px rgba(2,6,23,0.6);
+      display:flex;flex-direction:column;gap:10px;height:100%;
+    }
+    .thumb{height:140px;border-radius:8px;background:linear-gradient(135deg,#123 40%, #234);display:flex;align-items:flex-end;padding:12px;color:#fff;font-weight:700}
+    .card h3{margin:0;font-size:16px}
+    .card p{color:var(--muted);font-size:13px;margin:0 0 8px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;background:rgba(255,255,255,0.03);border-radius:999px;color:var(--muted)}
+    .btn-row{margin-top:auto;display:flex;gap:8px}
+    .btn{flex:1;padding:8px 10px;border-radius:10px;text-align:center;text-decoration:none;font-weight:700}
+    .btn-outline{border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#052023}
+
+    /* ======= About & Contact ======= */
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+
+    form{display:flex;flex-direction:column;gap:12px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:inherit}
+    input::placeholder, textarea::placeholder{color:var(--muted)}
+    button[type="submit"]{padding:12px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));font-weight:800;color:#052023}
+
+    footer{color:var(--muted);font-size:14px;padding:18px 0;text-align:center}
+
+    /* ======= Responsive ======= */
+    @media (max-width:1000px){
+      .hero{grid-template-columns:1fr 300px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .hero{grid-template-columns:1fr}
+      .profile-card{order:-1}
+      .grid{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      nav{display:none}
+    }
+
+    /* ======= Small animations ======= */
+    .card, .profile-card, .intro{transition:transform .28s ease, box-shadow .28s ease}
+    .card:hover, .profile-card:hover, .intro:hover{transform:translateY(-6px)}
+
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="brand">
+      <div class="logo">AB</div>
+      <div>
+        <div style="font-size:14px">N.Asima Barveen</div>
+        <div style="font-size:12px;color:var(--muted)">Web Developer — Designer</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#contact">Hire Me</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="intro">
+        <h1>Hi — I'm <span style="color:var(--accent-2)">Asima Barveen</span></h1>
+        <p>I'm a front-end developer who crafts clean, accessible, and delightful experiences on the web. I specialize in HTML, CSS, and modern responsive design.</p>
+
+        <div class="skills" aria-hidden="false">
+          <div class="skill">HTML</div>
+          <div class="skill">CSS</div>
+          <div class="skill">Responsive Design</div>
+          <div class="skill">Accessibility</div>
+          <div class="skill">UI Design</div>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:18px">
+          <a class="btn-primary btn" href="#projects">View Work</a>
+          <a class="btn-outline btn" href="#about">Resume</a>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Profile card">
+        <div class="avatar">AB</div>
+        <div style="text-align:center">
+          <div style="font-weight:700">Asima</div>
+          <small>Front-end Developer</small>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:6px">
+          <a class="tag" href="#">LinkedIn</a>
+          <a class="tag" href="#">GitHub</a>
+        </div>
+      </aside>
+    </section>
+
+    <section id="projects" class="section">
+      <h2 class="section-title">Selected Projects</h2>
+      <div class="grid">
+
+        <article class="card">
+          <div class="thumb">My Shop
+          </div>
+          <h3>e‑commerce UI</h3>
+          <p>Responsive e‑commerce product page with accessible markup and fluid layout.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS Grid</span><span class="tag">Design</span></div>
+          <div class="btn-row">
+            <a class="btn-outline btn" href="#">Live</a>
+            <a class="btn-primary btn" href="#">Code</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">Portfolio</div>
+          <h3>Portfolio Template</h3>
+          <p>Lightweight portfolio layout built with semantic HTML and CSS custom properties.</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span></div>
+          <div class="btn-row">
+            <a class="btn-outline btn" href="#">Live</a>
+            <a class="btn-primary btn" href="#">Code</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb">App</div>
+          <h3>Dashboard UI</h3>
+          <p>Component-driven dashboard with modular CSS and accessible data tables.</p>
+          <div class="tags"><span class="tag">CSS</span><span class="tag">UX</span></div>
+          <div class="btn-row">
+            <a class="btn-outline btn" href="#">Live</a>
+            <a class="btn-primary btn" href="#">Code</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2 class="section-title">About</h2>
+      <div class="two-col">
+        <div>
+          <p style="color:var(--muted)">I build accessible, responsive interfaces that scale across devices. I love turning complex layouts into simple, maintainable code. When I'm not coding I enjoy photography and hiking.</p>
+
+          <h3 style="margin-top:12px">Skills</h3>
+          <div class="skills" style="margin-top:8px">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">Flexbox</div>
+            <div class="skill">Grid</div>
+            <div class="skill">Sass</div>
+            <div class="skill">Git</div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Experience</h3>
+          <ul style="color:var(--muted)">
+            <li>Front-end Developer — Company A (2025–Present)</li>
+            <li>UI Designer — Studio B (2023–2024)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2 class="section-title">Contact</h2>
+      <div class="two-col">
+        <div>
+          <p style="color:var(--muted)">Interested in working together? Send a message — I respond within a few business days.</p>
+          <address style="color:var(--muted)">Based in: Tenkasi,India</address>
+
+          <h4 style="margin-top:12px">Social</h4>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <a class="https://github.com/Asima-53" href="#">GitHub</a>
+            <a class="https://www.linkedin.com/in/asima-barveen" href="#">LinkedIn</a>
+            </div>
+        </div>
+
+        <form action="https://example.com/submit" method="post" aria-label="Contact form">
+          <input name="name" type="text" placeholder="Your name" required>
+          <input name="email" type="email" placeholder="Your email" required>
+          <input name="subject" type="text" placeholder="Subject">
+          <textarea name="message" rows="5" placeholder="Message" required></textarea>
+          <button type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year">2025</span> Asima Barveen — Built with HTML & CSS
+  </footer>
+</div>
+
+<!-- Optional: small script to keep the year current if you want to paste JS later -->
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
